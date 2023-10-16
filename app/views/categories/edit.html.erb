@@ -1,0 +1,28 @@
+<div class="col-lg-12">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+          Edit Category
+      </div>
+      <div class="panel-body">
+          <div class="row">
+              <div class="col-lg-12">
+                  <%= form_for @category do |f| %>
+                    <div class="form-group">
+                      <%= f.label :name %>
+                      <%= f.text_field :name, class: 'form-control', placeholder: 'Nhập category'%>
+                    </div>
+                    <div>
+                      <%= f.submit 'Save', class: 'btn btn-primary btn-lg' %>
+                    </div>
+                  <% end %>
+              </div>
+              <!-- /.col-lg-6 (nested) -->
+          </div>
+          <!-- /.row (nested) -->
+      </div>
+      <!-- /.panel-body -->
+  </div>
+  <!-- /.panel -->
+</div>
+<%= link_to 'Back', categories_path, class:'btn btn-default btn-lg' %>
+

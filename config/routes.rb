@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  as :user do
+    get "signin" => "devise/sessions#new"
+    post "signin" => "devise/sessions#create"
+    delete "signout" => "devise/sessions#destroy"
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Define a custom route for the root path
+  root "users#index"
+
+  # Add a route to the UsersController to handle the index action
+  resources :users, only: [:index]
 end

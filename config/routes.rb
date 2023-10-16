@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   # Add a route to the UsersController to handle the index action
   resources :users, only: [:index]
+  resources :categories
+  resources :products
 end

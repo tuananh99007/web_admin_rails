@@ -1,0 +1,53 @@
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <div class="car"></div>
+    <div class="card mb-8">
+      <div class="card-header"><strong>Tables</strong><span class="small ms-1">Products</span></div>
+      <div class="card-body">
+        <p class="text-medium-emphasis small">Using the most basic table markup, here’s how <code>.table</code>-based tables look in Bootstrap.</p>
+        <div class="example">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation"><a class="nav-link active" data-coreui-toggle="tab" href="#preview-1000" role="tab" aria-selected="true">
+                <svg class="icon me-2">
+                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-media-play"></use>
+                </svg>Preview</a></li>
+          </ul>
+          <div class="tab-content rounded-bottom">
+            <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category_id</th>
+                    <th scope="col">
+                      <%= link_to 'New Product', new_product_path %>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @products.each do |product| %>
+                    <tr>
+                      <td><%= product.id %></td>
+                      <td><%= product.name %></td>
+                      <td><%= product.description %></td>
+                      <td><%= product.price %></td>
+                      <td><%= product.category.name %></td>
+                      <td>
+                        <%= link_to 'Show', product_path(product) %>
+                        <%= link_to 'Edit', edit_product_path(product) %>
+                        <%= link_to 'Delete', product, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

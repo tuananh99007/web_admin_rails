@@ -7,15 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "turbo", type: "module" %>
   </head>
 
   <body>
-    <div class="container-fluid">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <%= render template: 'index/menu' %>
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <%= render template: 'index/header' %>
+      <div class="container-fluid">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <%= yield %>
     </div>
-
-    <%= yield %>
   </body>
 </html>

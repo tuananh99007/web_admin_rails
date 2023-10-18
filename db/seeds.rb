@@ -23,3 +23,4 @@
     price: 29.99,
     category_id: 2
   )
+  

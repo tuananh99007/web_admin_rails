@@ -20,12 +20,12 @@ def create
     if @category.save
       redirect_to categories_path, notice: 'Category created successfully.'
     else
-      flash.now[:alert] = 'Failed to save category. Please try again.'
-      render :new
+      flash[:alert] = 'Failed to save category. Please try again.'
+      redirect_to new
     end
   else
-    flash.now[:alert] = 'Validation failed. Please check the form and try again.'
-    render :new
+    flash[:alert] = "Validation failed. Please check the form and try again."
+    redirect_to new
   end
 end
 

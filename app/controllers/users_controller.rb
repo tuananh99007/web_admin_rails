@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def create 
+
     @user = User.new(user_params)
     if @user.save
       redirect_to users_path, notice: 'User created successfully.'
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :role, :password, :password_confirmation)
+    params.require(:user).permit(:email, :role, :password, :password_confirmation, :name, :profile_image)
   end
 
   def find_user

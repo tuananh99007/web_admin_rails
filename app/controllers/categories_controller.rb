@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @categories = Category.all
+    @categories = Kaminari.paginate_array(Category.all).page(params[:page]).per(5)
   end
 
   def show

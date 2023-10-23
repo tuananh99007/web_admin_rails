@@ -73,3 +73,10 @@ end
 
 #Gemfile
 gem "devise", "~> 4.1"
+
+
+gem "kaminari"
+gem "ransack"
+gem "kaminari-bootstrap"
+gem "jquery-rails"
+

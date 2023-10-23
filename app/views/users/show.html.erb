@@ -2,7 +2,7 @@
   <div class="container-lg">
     <div class="car"></div>
     <div class="card mb-8">
-      <div class="card-header"><strong>Tables</strong><span class="small ms-1">Users</span></div>
+      <div class="card-header"><strong>Tables</strong><span class="small ms-1">Show Users</span></div>
       <div class="card-body">
         <p class="text-medium-emphasis small">Using the most basic table markup, here’s how <code>.table</code>-based tables look in Bootstrap.</p>
         <div class="example">
@@ -17,29 +17,20 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Email</th>
                     <th scope="col">Role</th>
-                    <th scope="col">
-                      <%= link_to 'New Users', new_user_path %>
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% @users.each do |user| %>
-                    <tr>
-                      <td><%= user.id %></td>
-                      <td><%= user.email %></td>
-                      <td><%= user.role %></td>
-                      <td>
-                        <%= link_to 'Show', user_path(user) %>
-                        <%= link_to 'Edit', edit_user_path(user) %>
-                        <%= link_to 'Delete', user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-                      </td>
-                    </tr>
-                  <% end %>
+                  <tr>
+                    <td><%= @user.id %></td>
+                    <td><%= @user.email %></td>
+                    <td><%= @user.role %></td>
+                  </tr>
                 </tbody>
               </table>
+              <%= link_to 'Back', users_path, class: 'btn btn-success btn-lg' %>
             </div>
           </div>
         </div>

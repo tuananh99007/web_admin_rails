@@ -34,6 +34,9 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def destroy
+    @category.products.each do |product|
+      product.destroy
+    end
     if @category.destroy
       redirect_to admin_categories_path, notice: "Category deleted successfully."
     else

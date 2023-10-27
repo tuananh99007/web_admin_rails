@@ -1,6 +1,5 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::AdminController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   def index
     @categories = Category.page(params[:page]).per(5)
@@ -13,15 +12,15 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-def create
-  @category = Category.new(category_params)
-  if @category.save
-    redirect_to categories_path, notice: 'Category created successfully.'
-  else
-    flash[:alert] = 'Failed to save category. Please try again.'
-    redirect_to new
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to categories_path, notice: 'Category created successfully.'
+    else
+      flash[:alert] = 'Failed to save category. Please try again.'
+      redirect_to new
+    end
   end
-end
 
 
   def edit

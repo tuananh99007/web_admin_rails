@@ -1,18 +1,10 @@
 Rails.application.routes.draw do
-devise_for :users, path: 'auth',
-  path_names: {
-    sign_in: 'login',
-    sign_out: 'logout',
-    password: 'secret',
-    confirmation: 'verification',
-    unlock: 'unblock',
-    registration: 'register',
-    sign_up: 'cmon_let_me_in'
-  }
+  devise_for :users
+  root "admin/users#index"
 
-  root "users#index"
-
-  resources :users, only: [:index]
-  resources :categories
-  resources :products
+  namespace :admin do
+    resources :categories
+    resources :products
+    resources :users, only: :index
+  end
 end

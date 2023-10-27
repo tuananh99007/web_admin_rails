@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @categories = Kaminari.paginate_array(Category.all).page(params[:page]).per(5)
+    @categories = Category.page(params[:page]).per(5)
   end
 
   def show
@@ -15,15 +15,10 @@ class CategoriesController < ApplicationController
 
 def create
   @category = Category.new(category_params)
-  if @category.valid?
-    if @category.save
-      redirect_to categories_path, notice: 'Category created successfully.'
-    else
-      flash[:alert] = 'Failed to save category. Please try again.'
-      redirect_to new
-    end
+  if @category.save
+    redirect_to categories_path, notice: 'Category created successfully.'
   else
-    flash[:alert] = "Validation failed. Please check the form and try again."
+    flash[:alert] = 'Failed to save category. Please try again.'
     redirect_to new
   end
 end

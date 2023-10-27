@@ -7,17 +7,11 @@
         <div class="example">
           <div class="tab-content rounded-bottom">
             <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
-              <%= form_for @category do |f| %>
-                <div class="form-group">
-                  <%= f.label :name %>
-                  <%= f.text_field :name, class: 'form-control', placeholder: 'Import category'%>
+              <div class="row">
+                <div class="col-lg-12">
+                  <%= render "categories_form_edit_new" %>
                 </div>
-                <br>
-                <div class="d-flex justify-content-between">
-                  <%= f.submit 'Save', class: 'btn btn-primary btn-lg' %>
-                  <%= link_to "Back", categories_path, class: 'btn btn-success btn-lg' %>
-                </div>
-              <% end %>
+              </div>
             </div>
           </div>
         </div>

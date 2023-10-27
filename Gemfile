@@ -74,6 +74,6 @@ end
 #Gemfile
 gem "devise", "~> 4.1"
 
-gem 'bootstrap5-kaminari-views'
-gem 'bootstrap', '~> 5.2', '>= 5.2.3'
-gem 'kaminari'
+gem "bootstrap5-kaminari-views"
+gem "bootstrap", "~> 5.2", ">= 5.2.3"
+gem "kaminari"

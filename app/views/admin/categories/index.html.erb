@@ -7,7 +7,7 @@
         <div class="example">
           <div class="tab-content rounded-bottom">
             <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
-              <%= render partial: 'categories/categories_index', locals: { categories: @categories } %>
+              <%= render partial: "admin/categories/categories_index", locals: { categories: @categories } %>
               <div class="text-center">
                 <%= paginate @categories, theme: "bootstrap-5" %>
               </div>

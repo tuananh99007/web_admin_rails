@@ -14,24 +14,22 @@
       <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
     </svg> Profile</a></li>
   <li class="nav-title">Table</li>
-  <li class="nav-item"><a class="nav-link" href="<%= users_path %>">
+  <li class="nav-item"><a class="nav-link" href="">
     <svg class="nav-icon">
       <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
     </svg> Users</a></li>
-  <li class="nav-item"><a class="nav-link" href="<%= categories_path %>">
+  <li class="nav-item"><a class="nav-link" href="<%= admin_categories_path %>">
     <svg class="nav-icon">
       <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
     </svg> Categories</a></li>
-  <li class="nav-item"><a class="nav-link" href="<%= users_path %>">
+  <li class="nav-item"><a class="nav-link" href="">
     <svg class="nav-icon">
       <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
     </svg> Products</a></li>
-  <li class="nav-title">Logout</li>
-  <li class="nav-item mt-auto"><a class="nav-link" href="https://coreui.io/docs/templates/installation/" target="_blank">
-    <svg class="nav-icon">
-      <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-description"></use>
-    </svg> Docs</a></li>
-  <li class="nav-item"><a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
+  <li class="nav-item">
+  <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-link nav-link-danger', target: '_top' %>
+  </li>
+
     <svg class="nav-icon">
       <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
     </svg>

@@ -15,20 +15,19 @@ class Admin::CategoriesController < Admin::AdminController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to categories_path, notice: 'Category created successfully.'
+      redirect_to admin_categories_path, notice: 'Category created successfully.'
     else
       flash[:alert] = 'Failed to save category. Please try again.'
-      redirect_to new
+      redirect_to new_admin_category_path
     end
   end
-
 
   def edit
   end
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path, notice: 'Category updated successfully.'
+      redirect_to admin_categories_path, notice: 'Category updated successfully.'
     else
       render :edit
     end
@@ -36,9 +35,9 @@ class Admin::CategoriesController < Admin::AdminController
 
   def destroy
     if @category.destroy
-      redirect_to categories_path, notice: 'Category deleted successfully.'
+      redirect_to admin_categories_path, notice: 'Category deleted successfully.'
     else
-      redirect_to categories_path, alert: 'Failed to delete category.'
+      redirect_to admin_categories_path, alert: 'Failed to delete category.'
     end
   end
 

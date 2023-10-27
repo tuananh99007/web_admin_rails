@@ -1,3 +1,2 @@
-class Admin::CategoriesController < ApplicationController
-  before_action :authenticate_user!
+class Admin::CategoriesController < Admin::AdminController
 end

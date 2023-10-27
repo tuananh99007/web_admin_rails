@@ -36,8 +36,11 @@ end
   end
 
   def destroy
-    @category.destroy
-    redirect_to categories_path, notice: 'Category deleted successfully.'
+    if @category.destroy
+      redirect_to categories_path, notice: 'Category deleted successfully.'
+    else
+      redirect_to categories_path, alert: 'Failed to delete category.'
+    end
   end
 
   private

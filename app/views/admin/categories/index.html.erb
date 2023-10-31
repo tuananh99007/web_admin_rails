@@ -7,7 +7,20 @@
         <div class="example">
           <div class="tab-content rounded-bottom">
             <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
-              <%= render partial: "admin/categories/categories_index", locals: { categories: @categories } %>
+              <table class="table">
+                <thead></thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">
+                      <%= link_to "New Category", new_admin_category_path, class: "btn btn-success" %>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render partial: 'admin/categories/category_row', collection: @categories, as: :category %>
+                </tbody>
+              </table>
               <div class="text-center">
                 <%= paginate @categories, theme: "bootstrap-5" %>
               </div>

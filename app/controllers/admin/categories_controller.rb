@@ -2,7 +2,7 @@ class Admin::CategoriesController < Admin::AdminController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.page(params[:page]).per(Settings.default.per_page)
+    @categories = Category.page(params[:page]).per(Settings.categories.per_page)
   end
 
   def show

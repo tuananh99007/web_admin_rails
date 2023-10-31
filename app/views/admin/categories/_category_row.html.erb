@@ -2,7 +2,7 @@
   <td scope="row"><%= category.id %></td>
   <td><%= category.name %></td>
   <td>
-    <%= link_to "Show", admin_category_path(category), class: "btn btn-info" %>
+    <%= link_to "Show", [:admin, category], class: "btn btn-info" %>
     <%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-warning" %>
     <%= link_to "Delete", admin_category_path(category), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   </td>

@@ -19,7 +19,7 @@ class Admin::CategoriesController < Admin::AdminController
     else
       flash[:alert] = "Failed to save category. Please try again."
     end
-    redirect_to new_admin_categories_path
+    redirect_to new_admin_category_path
   end
 
   def edit
@@ -31,7 +31,7 @@ class Admin::CategoriesController < Admin::AdminController
     else
       flash[:alert] = "Failed to update category. Please try again."
     end
-    render :edit
+    redirect_to edit_admin_category_path
   end
 
   def destroy

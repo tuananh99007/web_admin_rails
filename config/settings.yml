@@ -1,2 +1,5 @@
 categories:
   per_page: 5
+
+products:
+  per_page: 10

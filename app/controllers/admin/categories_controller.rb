@@ -35,14 +35,12 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def destroy
-    @category.products.each do |product|
-      product.destroy
-    end
     if @category.destroy
-      redirect_to admin_categories_path, notice: "Category deleted successfully."
+      flash[:notice] = "The category and corresponding product have been successfully deleted."
     else
-      redirect_to admin_categories_path, alert: "Failed to delete category."
+      flash[:alert] = "Failed to delete category."
     end
+    redirect_to admin_categories_path
   end
 
   private

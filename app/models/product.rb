@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { maximum: 255 }
   validates :description, length: { maximum: 255 }
-  validates :name, presence: true, uniqueness: true
+  validates :price, presence: true
   belongs_to :category
 
   def self.category_name

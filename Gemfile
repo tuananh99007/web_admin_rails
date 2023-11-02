@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.8"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem 'mysql2', '~> 0.5.2'
+gem "mysql2", "~> 0.5.2"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -73,3 +73,8 @@ end
 
 #Gemfile
 gem "devise", "~> 4.1"
+
+gem "bootstrap5-kaminari-views"
+gem "bootstrap", "~> 5.2", ">= 5.2.3"
+gem "kaminari"
+gem "config"

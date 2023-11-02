@@ -1,0 +1,31 @@
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <div class="car"></div>
+    <div class="card mb-8">
+      <div class="card-header"><strong>Tables</strong><span class="small ms-1">Categories</span></div>
+      <div class="card-body">
+        <div class="example">
+          <div class="tab-content rounded-bottom">
+            <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><%= @category.id %></td>
+                    <td><%= @category.name %></td>
+                  </tr>
+                </tbody>
+              </table>
+              <%= link_to "Back", admin_categories_path, class: "btn btn-success btn-lg" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<%= form_for [:admin, @category] do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Import category"%>
+  </div>
+  <br>
+  <div class="d-flex justify-content-between">
+    <%= f.submit "Send", class: "btn btn-primary btn-lg" %>
+    <%= link_to "Back", admin_categories_path, class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

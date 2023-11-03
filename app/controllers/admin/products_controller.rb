@@ -1,5 +1,6 @@
 class Admin::ProductsController < Admin::AdminController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
+  before_action :find_category, only: [:new, :edit]
 
   def index
     @products = Product.page(params[:page]).per(Settings.products.per_page)
@@ -14,8 +15,6 @@ class Admin::ProductsController < Admin::AdminController
 
   def create
     @product = Product.new(product_params)
-    category_id = params[:product][:category_id]
-    @product.category_id = category_id
     if @product.save
       flash[:notice] = "Product created successfully."
     else
@@ -39,7 +38,6 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def destroy
-    @product.destroy
     if @product.destroy
       flash[:notice] = "Product delete successfully."
     else
@@ -51,10 +49,15 @@ class Admin::ProductsController < Admin::AdminController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, category_id: [])
+    params.require(:product).permit(:name, :description, :price, :category_id)
   end
 
   def find_product
     @product = Product.find(params[:id])
+    @categories = Category.all
+  end
+
+  def find_category
+    @categories = Category.all
   end
 end

@@ -54,7 +54,6 @@ class Admin::ProductsController < Admin::AdminController
 
   def find_product
     @product = Product.find(params[:id])
-    @categories = Category.all
   end
 
   def find_category

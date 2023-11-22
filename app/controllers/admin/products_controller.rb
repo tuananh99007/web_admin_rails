@@ -14,7 +14,7 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = Product.create(product_params)
     if @product.save
       flash[:notice] = "Product created successfully."
     else
@@ -27,8 +27,6 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def update
-    category_id = params[:product][:category_id]
-    @product.category_id = category_id
     if @product.update(product_params)
       flash[:notice] = "Product updated successfully."
     else
@@ -59,4 +57,10 @@ class Admin::ProductsController < Admin::AdminController
   def find_category
     @categories = Category.all
   end
+
+  def delegate_product_attribute(attribute)
+    @product.send(attribute)
+  end
+
+  helper_method :delegate_product_attribute
 end

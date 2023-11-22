@@ -4,4 +4,5 @@ class Product < ApplicationRecord
   validates :price, presence: true, numericality: true
   belongs_to :category
 
+  delegate :name, to: :category, prefix: true
 end

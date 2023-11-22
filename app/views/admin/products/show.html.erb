@@ -1,0 +1,34 @@
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <div class="card mb-8">
+      <div class="card-header"><strong>Tables</strong><span class="small ms-1">Show Product</span></div>
+      <div class="card-body">
+        <div class="tab-content rounded-bottom">
+          <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Category_id</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= delegate_product_attribute(:id) %></td>
+                  <td><%= delegate_product_attribute(:name) %></td>
+                  <td><%= delegate_product_attribute(:description) %></td>
+                  <td><%= delegate_product_attribute(:price) %></td>
+                  <td><%= delegate_product_attribute(:category_name) %></td>
+                </tr>
+              </tbody>
+            </table>
+            <%= link_to "Back", admin_products_path, class: "btn btn-success btn-lg" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

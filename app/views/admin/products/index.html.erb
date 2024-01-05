@@ -36,9 +36,62 @@
               </tbody>
             </table>
             <div class="text-center">
-              <%= paginate @products, theme: "bootstrap-5" %>
+              <% unless @current_page == 1 %>
+                <%= link_to 'Previous', { page: @current_page - 1 } %>
+              <% end %>
+
+              <% (1..@total_pages).each do |page| %>
+                <%= link_to page, { page: page } %>
+              <% end %>
+
+              <% unless @current_page == @total_pages %>
+                <%= link_to 'Next', { page: @current_page + 1 } %>
+              <% end %>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <div class="card mb-8">
+      <div class="card-header"><strong>Tables</strong><span class="small ms-1">Products_pt</span></div>
+      <div class="card-body">
+        <div class="tab-content rounded-bottom">
+          <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1000">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Category_id</th>
+                  <th scope="col">
+                    <%= link_to "New Product", new_admin_product_path, class: "btn btn-success" %>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @products_pt.each do |product| %>
+                  <tr>
+                    <td><%= product.id %></td>
+                    <td><%= product.name %></td>
+                    <td><%= product.description %></td>
+                    <td><%= product.price %></td>
+                    <td><%= product.category_name %></td>
+                    <td>
+                      <%= link_to "Show", [:admin, product], class: "btn btn-info" %>
+                      <%= link_to "Edit", edit_admin_product_path(product), class: "btn btn-warning" %>
+                      <%= link_to "Delete", admin_product_path(product), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
         </div>
       </div>
     </div>
